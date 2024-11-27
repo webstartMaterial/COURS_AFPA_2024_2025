@@ -1,0 +1,392 @@
+/* RESET CSS */
+
+* {
+    /* permet de dire : quand je définis une largeur ou une hauteur je veux que ca prenne en compte
+    les bordures et les marges */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+/* GLOBAL CSS */
+
+h1, h2, h3, h4, h5, h6, p, a {
+    margin: 1rem 0rem;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+p {
+    font-weight: 400;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* 
+
+################################
+||                            ||
+||          FLEX BOX          ||
+||                            ||
+################################
+
+*/
+
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.order-1 {
+    order: 1;
+}
+
+.order-2 {
+    order: 2;
+}
+
+/* COMMON CLASSES */
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    background-color: #fc4364;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+    width: fit-content;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.bg-blue-dark {
+    background-color: #003668;
+}
+
+.text-white {
+    color: white;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+
+/* HEADER */
+
+header img {
+    width: 200px;
+    height: 50px;
+}
+
+header nav ul li {
+    margin: 0rem 1rem;
+}
+
+h1 {
+    line-height: 28px;
+}
+
+h1 span {
+    padding: 0.3rem;
+}
+
+#burger-menu {
+    display: none;
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+}
+
+#heading-section {
+    background-color: rgb(94,36,195);
+    /* background: linear-gradient(0deg, rgba(94,36,195,1) 0%, rgba(138,43,226,1) 50%, rgba(255,255,255,1) 100%); */
+}
+
+/* PRESENTATION */
+#presentation ul li {
+    margin: 0 1rem;
+}
+
+#presentation ul li p:first-of-type {
+    font-size: 3rem;
+}
+
+#presentation ul li:nth-child(1) p:first-of-type {
+    color: #1e8bff;
+}
+
+#presentation ul li:nth-child(2) p:first-of-type {
+    color: #6955ff;
+}
+
+#presentation ul li:nth-child(3) p:first-of-type {
+    color: #a83af5;
+}
+
+#presentation ul li:nth-child(4) p:first-of-type {
+    color: #c03ada;
+}
+
+#presentation ul li p{
+    text-align: center;
+}
+
+/* FOOTER */
+
+footer i {
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    display: block;
+    border-radius: 50%;
+}
+
+footer li {
+    margin: 1rem 0;
+}
+
+footer ul:nth-child(2) li:last-child a:nth-child(2) {
+    margin: 0rem 1rem;
+}
+
+footer ul:last-child li:nth-child(2) {
+    margin: 0rem 1rem;
+}
+
+.tel {
+    background: url("../img/phone.svg") no-repeat;
+    background-position: center;
+}
+
+.email {
+    background: url("../img/email.svg") no-repeat;
+    background-position: center;
+}
+
+.faq {
+    background: url("../img/faq.svg") no-repeat;
+    background-position: center;
+}
+
+.facebook {
+    background: url("../img/facebook.svg") no-repeat;
+    background-position: center;
+}
+
+.linkedin {
+    background: url("../img/linkedin.svg") no-repeat;
+    background-position: center;
+    background-size: 50%;
+    margin: 0rem 1rem;
+}
+
+.youtube {
+    background: url("../img/youtube.svg") no-repeat;
+    background-position: center;
+}
+
+
+/* OFFER */
+
+div#offer h2 {
+/* #offer h2 { */
+
+    background: linear-gradient(90deg, #1e8bff, #1e6955ff 45%, #a83af5 50%, #c03ada 75%);
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    /* préfixes vendeurs */
+    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    -moz-text-fill-color:transparent;
+    -moz-background-clip:text;
+
+}
+
+#offer h3 {
+    color: red;
+    text-transform: uppercase;
+}
+
+#offer h4 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+/* ################################
+||                            ||
+||          COURSES           ||
+||                            ||
+################################ */
+
+#courses {
+    background-color: #fafafa;
+}
+
+#courses article {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background: white;
+    -webkit-box-shadow: 0px 0px 8px 0px #000000; 
+    box-shadow: 0px 0px 8px 0px #000000;
+}
+
+
+#courses article img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+#courses article div p {
+    color: grey;
+}
+
+/* RESPONSIVE WEB DESIGN */
+
+/* extra small devices (téléphone): <= 600px */
+/* small devices (téléphones et tables portraits: > 600px && <= 767px */
+/* medium devices (écran ordinateur + tablettes paysage: > 767px && <= 991px */
+/* large larges devices (écran ordinateur: > 992px && <= 1200 */
+/* extra large larges devices (écran ordinateur: > 1200 */
+
+/* UNIQUEMENT - Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* extra small devices + Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) {
+
+    #offer article {
+        flex-direction: column;
+    }
+
+    .order-2 {
+        order: 1;
+    }
+
+    .order-1 {
+        order: 2;
+    }
+
+    #courses > div {
+        flex-direction: column;
+    }
+
+    #courses article {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+/* UNIQUEMENT - Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+
+}
+
+/* JE RÉCUPÈRE TOUT À PARTIR DE 600PX (smartphone+ tablettes + écran moyen... + écran large...) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* smartphone + tablette portrait (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+    nav {
+        display: none;
+    }
+
+    #burger-menu {
+        display: block;
+    }
+
+    #heading-section > div {
+        flex-direction: column;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* extra small devices + small devices +  Medium devices (smartphone, tablettes portrait/paysage) */
+@media only screen and (max-width: 991px) {
+
+    .w-50 {
+        width: 100%;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
