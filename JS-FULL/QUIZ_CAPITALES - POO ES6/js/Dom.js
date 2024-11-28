@@ -5,6 +5,10 @@ class Dom {
         return document.querySelector(selection);
     }
 
+    static getDomElements(selection) {
+        return document.querySelectorAll(selection);
+    }
+
     static triggerEvent(elemHTML, eventType, functionToBeCalled) {
         elemHTML.addEventListener(eventType, functionToBeCalled);
     }
@@ -21,14 +25,16 @@ class Dom {
         elemHTML.classList[action](classToToggle);
     }
 
-    static addResponseToTable(country, answer, isCorrect) {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${country}</td>
-            <td>${answer}</td>
-            <td>${isCorrect}</td>
-        `;
-        responseTable.appendChild(row);
+    static createElement(elemHTML) {
+        return document.createElement(elemHTML);
+    }
+
+    static appendChild(parentElem, childElem) {
+        parentElem.appendChild(childElem);
+    }
+
+    static modifyStyle(elemHTML, property, value) {
+        elemHTML.style[property] = value;
     }
 
 }

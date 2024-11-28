@@ -1,29 +1,29 @@
-// const questions = [
-//     {
-//         country: 'France',
-//         correct: 'Paris',
-//         options: ['Lyon', 'Marseille', 'Nice']
-//     },
-//     {
-//         country: 'Italie',
-//         correct: 'Rome',
-//         options: ['Venise', 'Florence', 'Milan']
-//     },
-//     {
-//         country: 'Espagne',
-//         correct: 'Madrid',
-//         options: ['Barcelone', 'Séville', 'Valence']
-//     },
-// ];
+import Dom from "./Dom.js";
+import Player from "./Player.js";
+import Question from "./Question.js";
+import Quiz from "./Quiz.js";
 
+const questionText = Dom.getDomElement('#question-text');
+const answersContainer = Dom.getDomElement('#answers-container');
+const responseMessage = Dom.getDomElement('#response-message');
+const responseTable = Dom.getDomElement('#response-table tbody');
+const scoreContainer = Dom.getDomElement('#score-container');
+const finalScore = Dom.getDomElement('#final-score');
+const restartBtn = Dom.getDomElement('#restart-btn');
 
-// const questionText = document.querySelector('#question-text');
-// const answersContainer = document.querySelector('#answers-container');
-// const responseMessage = document.querySelector('#response-message');
-// const responseTable = document.querySelector('#response-table tbody');
-// const scoreContainer = document.querySelector('#score-container');
-// const finalScore = document.querySelector('#final-score');
-// const restartBtn = document.querySelector('#restart-btn');
+const listCountry = ['France', 'Italie', 'Espagne'];
+const listAnswers = ['Paris', 'Rome', 'Madrid'];
+const listOptions = [ ['Lyon', 'Marseille', 'Nice'], ['Venise', 'Florence', 'Milan'], ['Barcelone', 'Séville', 'Valence'] ];
 
-// restartBtn.addEventListener('click', startQuiz);
-// startQuiz();
+let questions = [];
+
+for(let i = 0; i < listCountry.length; i++) {
+
+    let question = new Question(listCountry[i], listAnswers[i], listOptions[i]);
+    questions.push(question);
+
+}
+
+const quiz = new Quiz(responseMessage, responseTable, scoreContainer, answersContainer, questionText, finalScore, questions, restartBtn);
+
+quiz.startQuiz();
