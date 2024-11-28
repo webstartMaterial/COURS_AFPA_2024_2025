@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pierre-feuille-Ciseaux</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Pierre-Feuille-Ciseaux</h1>
+  <div class="choices">
+    <div class="choice" data-choice="pierre"><i class="fas fa-hand-rock"></i></div>
+    <div class="choice" data-choice="feuille"><i class="fas fa-hand-paper"></i></div>
+    <div class="choice" data-choice="ciseaux"><i class="fas fa-hand-scissors"></i></div>
+  </div>
+  <div class="results">
+    <div class="result-box">
+      <h2>Ton Choix</h2>
+      <div class="result" id="playerResult"><i class="fas fa-question"></i></div>
+    </div>
+    <div class="result-box">
+      <h2>Choix de l'Ordinateur</h2>
+      <div class="result" id="computerResult"><i class="fas fa-question"></i></div>
+    </div>
+  </div>
+  <div class="message" id="message"></div>
+  <div class="score" id="score">Score : Joueur 0 - 0 Ordinateur</div>
+  <script src="js/app.js"></script>
+</body>
+</html>

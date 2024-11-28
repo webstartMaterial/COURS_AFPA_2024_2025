@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de Poids</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="converter-container">
+        <h1>Convertisseur de Poids</h1>
+        <form class="converter-form">
+            <div class="input-group">
+                <label for="inputValue">Poids</label>
+                <input type="number" id="inputValue" placeholder="Entrez une valeur" required>
+            </div>
+            <div class="input-group">
+                <label for="inputUnit">Unité de départ</label>
+                <select id="inputUnit">
+                    <option value="kg">Kilos (kg)</option>
+                    <option value="lbs">Livres (lbs)</option>
+                    <option value="g">Grammes (g)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="outputUnit">Unité de conversion</label>
+                <select id="outputUnit">
+                    <option value="kg">Kilos (kg)</option>
+                    <option value="lbs">Livres (lbs)</option>
+                    <option value="g">Grammes (g)</option>
+                </select>
+            </div>
+            <button type="button" id="convertButton">Convertir</button>
+        </form>
+        <div class="result">
+            <p id="resultText">Résultat : <span id="resultValue">--</span></p>
+        </div>
+    </div>
+</body>
+</html>
