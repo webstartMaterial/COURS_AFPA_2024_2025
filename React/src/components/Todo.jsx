@@ -4,7 +4,7 @@
 
   function Todo(props) {
     return (
-      <div className='todo' onDoubleClick={ () => props.onDblClickFromList(props.todoAAfficher.id) }>
+      <div className={`todo ${props.todoAAfficher.reminder ? 'reminder': ''}`} onDoubleClick={ () => props.onDblClickFromList(props.todoAAfficher.id) }>
           <h3> {props.todoAAfficher.text}
             <FaTimes 
               onClick={() => props.onclickFromList(props.todoAAfficher.id)} 

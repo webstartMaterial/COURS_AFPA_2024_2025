@@ -9,7 +9,24 @@ import { useState } from "react"
 
 function App() {
 
-  const handleClick = () => console.log("Supprimer tous les todos");
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: 'Anniversaire de mariage',
+      date: '12/09/1991',
+      reminder: true
+    },
+    {
+      id: 2,
+      text: 'вынести мусор',
+      date: 'Aujourd\'hui',
+      reminder: false
+    }
+  ]);
+
+  const [showAddTodo, setShowAddTodo] = useState(true);
+
+  const handleDeleteTodos = () => setTodos([]);
   const handleFilter = () => console.log("Filtrer tous les todos");
   const toggleShowForm = () => {
     console.log("click");
@@ -27,22 +44,7 @@ function App() {
 
   }
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: 'Anniversaire de mariage',
-      date: '12/09/1991',
-      reminder: true
-    },
-    {
-      id: 2,
-      text: 'вынести мусор',
-      date: 'Aujourd\'hui',
-      reminder: false
-    }
-  ]);
 
-  const [showAddTodo, setShowAddTodo] = useState(true);
 
   const toggleReminder = (id) => {
 
@@ -67,8 +69,11 @@ function App() {
       }
       
       <ListTodos onDblClickFromApp={toggleReminder} listTodos={todos} onclickFromApp={handleDeleteTodo} />
-      <Button onclickProp={handleClick} text="Supprimer" color="green" />
-      <Button onclickProp={handleFilter} text="Reminder" color="orange" />
+      <Button onclickprop={handleDeleteTodos} text="Supprimer" color="green" />
+      <Button onclickprop={handleFilter} text="Reminder" color="orange" />
+
+      <p className="counter">{todos.length} todos</p>
+
       <Footer />
 
     </div>
