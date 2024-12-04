@@ -26,8 +26,24 @@ function App() {
 
   const [showAddTodo, setShowAddTodo] = useState(true);
 
+  const [reminder, setReminder] = useState(true);
+  const [showAll, setShowAll] = useState(true);
+
   const handleDeleteTodos = () => setTodos([]);
-  const handleFilter = () => console.log("Filtrer tous les todos");
+
+  const toggleAllReminder = () => {
+
+    setTodos(
+      state => state.map(
+        todo => ({...todo, reminder : !reminder})
+      )
+    )
+    
+    setReminder(
+      state => !state
+    )
+  }
+
   const toggleShowForm = () => {
     console.log("click");
     setShowAddTodo(
@@ -44,14 +60,32 @@ function App() {
 
   }
 
-
-
   const toggleReminder = (id) => {
 
     setTodos(
       state => state.map(
         todo => todo.id == id ? {...todo, reminder : !todo.reminder} : todo
       )
+    );
+
+  }
+
+  const handleSubmit = (todo) => {
+
+    setShowAll(
+      true
+    );
+
+    setTodos(
+      state => [...state, {...todo, id: Math.floor(Math.random() * 1000000)}]
+    );
+
+  }
+
+  const toggleShowAll = () => {
+
+    setShowAll(
+      state => !state
     );
 
   }
@@ -65,12 +99,13 @@ function App() {
       <Header onclickpropFromApp={toggleShowForm} />
 
       {
-        showAddTodo && <AddForm />
+        showAddTodo && <AddForm handleSubmit={handleSubmit} />
       }
       
-      <ListTodos onDblClickFromApp={toggleReminder} listTodos={todos} onclickFromApp={handleDeleteTodo} />
+      <ListTodos showAll={showAll} onDblClickFromApp={toggleReminder} listTodos={todos} onclickFromApp={handleDeleteTodo} />
       <Button onclickprop={handleDeleteTodos} text="Supprimer" color="green" />
-      <Button onclickprop={handleFilter} text="Reminder" color="orange" />
+      <Button onclickprop={toggleAllReminder} text="Reminder" color="orange" />
+      <Button onclickprop={toggleShowAll} text={` ${showAll ? 'Filtrer' : 'Tous'}  `} color="violet" />
 
       <p className="counter">{todos.length} todos</p>
 

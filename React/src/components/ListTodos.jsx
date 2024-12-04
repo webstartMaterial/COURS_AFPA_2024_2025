@@ -8,7 +8,7 @@ function ListTodos(props) {
 
         {
           props.listTodos.map( 
-            (todo) => <Todo onDblClickFromList={props.onDblClickFromApp} key={todo.id} todoAAfficher={todo} onclickFromList={props.onclickFromApp}/>
+            (todo) => <Todo display={ ` ${!props.showAll && !todo.reminder ? 'none' : 'block'} ` } onDblClickFromList={props.onDblClickFromApp} key={todo.id} todoAAfficher={todo} onclickFromList={props.onclickFromApp}/>
           )
         }
        
