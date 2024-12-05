@@ -14,3 +14,8 @@ App.jsx : le composant principal de votre application (une app react, c'est un e
 App.css : le style pour App.jsx
 index.css : le style global de l'application
 main.jsx : c'est le point d'entrée de l'application
+
+
+
+npm install -g json-server
+json-server --watch db.json --port 8000

@@ -5,32 +5,53 @@ import Footer from "./components/Footer"
 import Button from "./components/Button"
 
 // importer un hook le usestate
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+// CRUD
+// creat - read - update - delete
+// protocole HTTP
+// api fetch (pour faire des requêtes asynchrones)
+// async await (ES6)
+
+// GET : récupérer des données
+// PUT : modifier (toggle sur reminder)
+// DELETE : supprimer
+// POST : ajouter
+
+// REST
+
+// GET    /todos
+// GET    /todos/1
+// POST   /todos
+// PUT    /todos/2
+// DELETE /todos/3
+
 
 function App() {
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: 'Anniversaire de mariage',
-      date: '12/09/1991',
-      reminder: true
-    },
-    {
-      id: 2,
-      text: 'вынести мусор',
-      date: 'Aujourd\'hui',
-      reminder: false
-    }
-  ]);
+  const fetchTasks = async () => {
 
+    const res = await fetch('http://localhost:8000/todos', {method:'GET'}); // method GET
+    const data = await res.json();
+    setTodos(data);
+
+  }
+
+  // quand mon composant va être monté, chargé à l'écran
+  useEffect(
+    () => {
+      
+      fetchTasks();
+      
+    }, []
+  );
+  
+  const [todos, setTodos] = useState([]);
   const [showAddTodo, setShowAddTodo] = useState(true);
-
   const [reminder, setReminder] = useState(true);
   const [showAll, setShowAll] = useState(true);
 
   const handleDeleteTodos = () => setTodos([]);
-
   const toggleAllReminder = () => {
 
     setTodos(
@@ -43,16 +64,19 @@ function App() {
       state => !state
     )
   }
-
   const toggleShowForm = () => {
     console.log("click");
     setShowAddTodo(
       (state) => !state
     )
   }
-  const handleDeleteTodo = (id) => {
+  const handleDeleteTodo = async (id) => {
 
     console.log(`Suppresion du todo n° ` + id);
+
+    const res = await fetch(`http://localhost:8000/todos/${id}`,
+       {method:'DELETE'}
+    );
 
     setTodos(
       (state) => state.filter(todo => todo.id != id)
@@ -70,7 +94,17 @@ function App() {
 
   }
 
-  const handleSubmit = (todo) => {
+  const handleSubmit = async(todo) => {
+
+    const res = await fetch(`http://localhost:8000/todos`,
+        {method:'POST'},
+        // headers :> content type objet json
+        //body : stringify notre todo
+    );
+
+    // ca nous renverra un objet json
+    // cet objet vous l'utiliserai pour l'ajouter au state en dessous
+
 
     setShowAll(
       true
