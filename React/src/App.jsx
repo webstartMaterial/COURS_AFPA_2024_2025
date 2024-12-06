@@ -31,7 +31,7 @@ function App() {
 
   const fetchTasks = async () => {
 
-    const res = await fetch('http://localhost:8000/todos', {method:'GET'}); // method GET
+    const res = await fetch('http://localhost:8000/todos'); // method GET
     const data = await res.json();
     setTodos(data);
 
@@ -40,12 +40,12 @@ function App() {
   // quand mon composant va être monté, chargé à l'écran
   useEffect(
     () => {
-      
+
       fetchTasks();
-      
+
     }, []
   );
-  
+
   const [todos, setTodos] = useState([]);
   const [showAddTodo, setShowAddTodo] = useState(true);
   const [reminder, setReminder] = useState(true);
@@ -56,10 +56,10 @@ function App() {
 
     setTodos(
       state => state.map(
-        todo => ({...todo, reminder : !reminder})
+        todo => ({ ...todo, reminder: !reminder })
       )
     )
-    
+
     setReminder(
       state => !state
     )
@@ -75,7 +75,7 @@ function App() {
     console.log(`Suppresion du todo n° ` + id);
 
     const res = await fetch(`http://localhost:8000/todos/${id}`,
-       {method:'DELETE'}
+      { method: 'DELETE' }
     );
 
     setTodos(
@@ -84,34 +84,62 @@ function App() {
 
   }
 
-  const toggleReminder = (id) => {
+  const fetchTodo = async (id) => {
+    const res = await fetch(`http://localhost:8000/todos/${id}`); // method GET
+    const data = await res.json();
+    return data;
+  }
+
+  const toggleReminder = async (id) => {
+
+    const todoToToggle = await fetchTodo(id);
+    const updateTodo = {...todoToToggle, reminder : !todoToToggle.reminder};
+
+    const res = await fetch(`http://localhost:8000/todos/${id}`,
+      { method: 'PUT',
+        headers: {
+          'Content-type' : 'application/json'
+        },
+        body:JSON.stringify(updateTodo)
+       }
+    );
+
 
     setTodos(
       state => state.map(
-        todo => todo.id == id ? {...todo, reminder : !todo.reminder} : todo
+        todo => todo.id == id ? { ...todo, reminder: !todo.reminder } : todo
       )
     );
 
   }
 
-  const handleSubmit = async(todo) => {
+  const handleSubmit = async (todo) => {
 
     const res = await fetch(`http://localhost:8000/todos`,
-        {method:'POST'},
-        // headers :> content type objet json
-        //body : stringify notre todo
+      {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(todo)
+      }
     );
+
+    const data = await res.json(); // l'objet renvoyé par mon insert en bdd
 
     // ca nous renverra un objet json
     // cet objet vous l'utiliserai pour l'ajouter au state en dessous
-
 
     setShowAll(
       true
     );
 
+    // setTodos(
+    //   state => [...state, {...todo, id: Math.floor(Math.random() * 1000000)}]
+    // );
+
     setTodos(
-      state => [...state, {...todo, id: Math.floor(Math.random() * 1000000)}]
+      state => [...state, data]
     );
 
   }
@@ -135,7 +163,7 @@ function App() {
       {
         showAddTodo && <AddForm handleSubmit={handleSubmit} />
       }
-      
+
       <ListTodos showAll={showAll} onDblClickFromApp={toggleReminder} listTodos={todos} onclickFromApp={handleDeleteTodo} />
       <Button onclickprop={handleDeleteTodos} text="Supprimer" color="green" />
       <Button onclickprop={toggleAllReminder} text="Reminder" color="orange" />
