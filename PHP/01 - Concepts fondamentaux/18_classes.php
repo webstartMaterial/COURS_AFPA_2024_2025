@@ -1,6 +1,5 @@
 <?php
 
-
     class Humain {
 
         public function __construct($first_name, $name, $age, $country) {
@@ -22,13 +21,10 @@
     }
 
     $wajdi = new Humain("Wajdi", "Rouafi", "22", "France");
-
     $wajdi->age = 23;
 
     echo $wajdi->country;
 
     $wajdi->introduce();
-
-    
 
 ?>
