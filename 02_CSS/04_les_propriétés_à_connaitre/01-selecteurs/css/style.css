@@ -1,0 +1,100 @@
+/* 
+color
+font-size
+font-weight
+background-color
+background:url()
+text-transform:uppercase
+text-decoration:underline
+font-family
+box-shadow
+border
+border-radius
+height
+width
+max-height
+max-width
+
+FLEX
+display
+justify-content
+align-items
+align-self
+order
+flex-wrap
+flex-shrink
+flex-grow
+flex-basis
+flex-direction
+
+margin
+padding
+text-align
+
+PSEUDO CLASS
+
+:nth-child()
+:nth-of-type()
+:last-child
+
+opacity
+rgb
+rgba()
+linear-gradient
+box-sizing
+
+*/
+
+
+/* 
+
+LES SELECTEURS
+
+*/
+
+/* CLASS */
+.myPgh {
+    color: tomato;
+}
+
+/* ID */
+#myPgh {
+    color: violet;
+}
+
+/* tag selector */
+
+body {
+    background-color: grey;
+}
+
+/* je récupère tous les input type password */
+input[type="password"] {
+    border: 3px solid red;
+}
+
+img[title="img 1"] {
+    width: 400px;
+}
+
+div ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+/* 
+    je veux récupérer
+    le lien
+    du 2ème li
+    de l'ul
+    de la div 
+    qui a l'id mySecondDiv
+*/
+
+div#mySecondDiv ul li:nth-child(2) a {
+    color: pink;
+} 
+
+#myThirdDiv p:first-child {
+    color: brown;
+}

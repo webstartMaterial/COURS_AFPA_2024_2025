@@ -1,0 +1,244 @@
+* { 
+
+    /*  RESET CSS
+        QUAND ON VEUT REDÉFINIR À 0 LE STYLE DE CERTAINES BALISES
+
+    */
+
+    /* je veux que mes largeurs et hauteurs incluent les marges et bordures quand je les définis */
+    /* A appliquer tout le temps ! */
+    box-sizing: border-box;
+    
+    /* margin: 0;
+    padding: 0;
+    color: black; */
+}  
+
+.border {
+    border: 2px solid black;
+}
+
+/* COMMON */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* FLEX BOX */
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+}
+
+/* COMMON CLASSES */
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+/* HEADER */
+
+header {
+    padding: 1rem;
+}
+
+nav ul li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#burger-menu {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    display: none;
+}
+
+.btn {
+    border: 1px solid black;
+    padding: 0.5rem;
+    background: black;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* MAIN */
+
+article {
+    width: 30%;
+    margin: 1rem 0;
+}
+
+/* footer */
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+footer .img {
+    flex-grow: 1;
+}
+
+footer #navigation {
+    flex-grow: 3;
+}
+
+footer #social-netorks {
+    flex-grow: 1;
+}
+
+
+/* RWD */
+
+/* TROIS SCÉNARIOS */
+/* soit je récupère un device */
+/* soit je récupère un ou plusieus devices */
+/* soit je récupère tout à partir d'un device */
+
+/* exemple */
+
+/* extra small devices (téléphone): <= 600px */
+/* small devices (téléphones et tables portraits: > 600px && <= 767px */
+/* medium devices (écran ordinateur + tablettes paysage: > 767px && <= 991px */
+/* large larges devices (écran ordinateur: > 992px && <= 1200 */
+/* extra large larges devices (écran ordinateur: > 1200 */
+
+/* UNIQUEMENT - Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* extra small devices + Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) {
+
+    nav {
+        display: none;
+    }
+
+    #burger-menu {
+        display: block;
+    }
+    
+    #slogan-container {
+        flex-direction: column;
+    }
+
+    article {
+        width: 100%;
+    }
+
+    /* 1kg en poids */
+    /* aside {
+        display: block;
+    } */
+
+    /* 3 kgs */
+    aside {
+        display: none !important;
+    }
+
+    /* 
+        Poid des selecteurs
+        type : 1
+        class : 2
+        id : 3
+    */
+
+    footer {
+        flex-direction: column;
+    }
+
+    footer #navigation {
+        margin: 1rem 0;
+    }
+
+    .w-50 {
+        width: 100%;
+    }
+
+    .w-80 {
+        width: 100%;
+    }
+
+}
+
+/* UNIQUEMENT - Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+
+}
+
+/* JE RÉCUPÈRE TOUT À PARTIR DE 600PX (smartphone+ tablettes + écran moyen... + écran large...) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

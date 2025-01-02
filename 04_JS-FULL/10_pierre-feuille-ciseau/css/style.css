@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 20px 0;
+  }
+
+  .choices {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+  }
+
+  .choice {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .choice i {
+    font-size: 50px;
+    color: #333;
+    transition: transform 0.3s ease;
+  }
+
+  .choice:hover i {
+    transform: scale(1.2);
+    color: #007bff;
+  }
+
+  .results {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+  }
+
+  .result-box {
+    text-align: center;
+  }
+
+  .result i {
+    font-size: 50px;
+    color: #333;
+  }
+
+  .message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .score {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }

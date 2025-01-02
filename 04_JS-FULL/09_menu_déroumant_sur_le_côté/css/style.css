@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+} 
+
+/* Conteneur du menu burger */
+.menu-burger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+  
+  /* Bouton du menu burger */
+  .burger-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  /* Lignes du menu burger */
+  .burger-button span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+  }
+
+  .burger-button span:nth-of-type(1).active {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+
+  .burger-button span:nth-of-type(2).active {
+    transform: rotate(-45deg);
+    top: -1px;
+  }
+
+  .burger-button span:nth-of-type(3).active {
+    opacity: 0;
+  }
+  
+  /* Effet au survol (optionnel) */
+  .burger-button:hover span {
+    background-color: #555;
+  }
+  
+  /* Conteneur principal du menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0;
+    transition: left 200ms ease-in;
+  }
+
+  .active {
+    left: 0px;
+  } 
+  
+  /* Logo */
+  .logo img {
+    width: 150px;
+    margin-bottom: 30px;
+  }
+  
+  /* Liens du menu */
+  .menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-links li {
+    margin: 15px 0;
+  }
+  
+  .menu-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-links a:hover {
+    color: #00bcd4;
+  }
+  
+  /* Icônes des réseaux sociaux */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #00bcd4;
+  }
+  

@@ -1,0 +1,120 @@
+.border {
+    border: 2px solid black;
+}
+
+/* COMMON */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* FLEX BOX */
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+}
+
+/* COMMON CLASSES */
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+/* HEADER */
+
+header {
+    padding: 1rem;
+}
+
+nav ul li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.btn {
+    border: 1px solid black;
+    padding: 0.5rem;
+    background: black;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* MAIN */
+
+article {
+    width: 30%;
+    margin: 1rem 0;
+}
+
+/* footer */
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+footer .img {
+    flex-grow: 1;
+}
+
+footer #navigation {
+    flex-grow: 3;
+}
+
+footer #social-netorks {
+    flex-grow: 1;
+}

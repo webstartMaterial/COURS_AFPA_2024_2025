@@ -1,0 +1,33 @@
+div {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    color: white;
+    padding: 10px;
+}
+
+div:nth-of-type(1) {
+    left: 40%;
+    background-color: #2C3e50;
+    z-index: 1;
+}
+
+div:nth-of-type(2) {
+    left: 50%;
+    background-color: #e74c3c;
+    z-index: 4;
+}
+
+div:nth-of-type(3) {
+    left: 45%;
+    top: 250px;
+    background-color: #27ae60;
+    z-index: 2;
+}
+
+div:nth-of-type(4) {
+    left: 50%;
+    top: 150px;
+    background-color: yellow;
+    z-index: 3;
+}

@@ -1,0 +1,9 @@
+-- Conclusion
+-- Optimisation :
+    -- Utiliser des index et analyser les requêtes avec EXPLAIN.
+    -- Écrire des requêtes simples et efficaces.
+-- Sécurité :
+    -- Gérer les privilèges avec GRANT/REVOKE.
+    -- Toujours sécuriser les mots de passe avec des hashages forts.
+-- Automatisation :
+    -- Utiliser des triggers pour automatiser les actions.

@@ -1,0 +1,17 @@
+
+- Smartphone et Tabelletes
+    => faire disparaitre la navigation et afficher un menu burger
+    => première section : img en haut et h1 p a en bas
+    => articles : 100% en width
+    => aside : elle disparaisse
+    => footer : je veux tout aligner à la verticale
+
+- Tabelletes en paysage : 
+    articles : 50% en width
+
+
+ 
+=> MOBILE FIRST (C'EST LE FAIT QUE GOOGLE INDEXE (RÉFÉRENCIE) LA VERSION MOBILE D'UN SITE WEB
+ET NON LA VERSION BUREAU)
+=> C'EST OBLIGATOIRE D'AVOIR UN SITE RWD CAR AUJOURD'HUI 55% DES GENS NAVIGUENT SUR INTERNET
+AVEC LEUR SMARTPHONE
