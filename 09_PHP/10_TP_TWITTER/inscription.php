@@ -14,9 +14,10 @@
 
     if($_POST) {
 
-      $name = trim($_POST['nom']);
+      $name = trim($_POST['name']);
       $email = trim($_POST['email']);
       $password = trim($_POST['password']);
+      $pseudo = trim($_POST['pseudo']);
       $repeatedPassword = trim($_POST['confirm_password']);
 
       if(empty($name) || empty($email) || empty($password) || empty($repeatedPassword)) {
@@ -46,13 +47,14 @@
 
         try {
 
-          $sql = "INSERT INTO users (nom, email, password) VALUES (:nom , :email, :password)";
+          $sql = "INSERT INTO users (name, email, password, pseudo) VALUES (:name , :email, :password, :pseudo)";
           $stmt = $pdo->prepare($sql);
 
           $stmt->execute([
-            ':nom' => $name,
+            ':name' => $name,
             ':email' => $email,
             ':password' => $hashed_password,
+            ':pseudo' => $pseudo,
           ]);
           $_SESSION["message"] = "<div class='alert bg-success'>
             Inscription confirmée
@@ -86,14 +88,14 @@
           <?= $msg; ?>
           <div class="card-body">
             <form method="POST">
-              <!-- Champ Nom -->
+              <!-- Champ name -->
               <div class="mb-3">
-                <label for="nom" class="form-label">Nom</label>
+                <label for="name" class="form-label">Nom</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="nom"
-                  name="nom"
+                  id="name"
+                  name="name"
                   placeholder="Entrez votre nom"
                   required
                 />
@@ -107,6 +109,18 @@
                   id="email"
                   name="email"
                   placeholder="Entrez votre email"
+                  required
+                />
+              </div>
+              <!-- Pseudo -->
+              <div class="mb-3">
+                <label for="pseudo" class="form-label">Pseudo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pseudo"
+                  name="pseudo"
+                  placeholder="Entrez votre pseudo"
                   required
                 />
               </div>

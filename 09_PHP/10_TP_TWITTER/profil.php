@@ -29,7 +29,7 @@ if (!isset($_SESSION["user_id"]) || empty($_SESSION["user_id"])) {
           <!-- Informations de la session -->
           <div class="mb-3">
             <label class="form-label fw-bold">Nom :</label>
-            <p id="user-name" class="form-control"><?= $_SESSION["nom"]; ?></p>
+            <p id="user-name" class="form-control"><?= $_SESSION["name"]; ?></p>
           </div>
           <div class="mb-3">
             <label class="form-label fw-bold">Email :</label>

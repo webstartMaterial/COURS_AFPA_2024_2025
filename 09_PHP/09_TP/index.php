@@ -17,7 +17,7 @@ if ($_POST) {
         }
     }
 
-    if(!is_numeric($_POST["cp"]) || strlen($_POST["cp"]) < 5) {
+    if(!is_numeric($_POST["cp"]) || strlen($_POST["cp"]) <= 5) {
         $msg .= "<div class='alert bg-danger'> 
             Veuillez renseigner un code postal valide
         </div>";
@@ -33,7 +33,7 @@ if ($_POST) {
         $extension = strrchr($_FILES["photo"]["name"], ".");
     
         if (!in_array($extension, $extensions)) {
-            $erreur .= "<div class='alert alert-warning' role='alert'>
+            $msg .= "<div class='alert alert-warning' role='alert'>
                 Veuillez charger un fichier au bon format (png, jpg, jpeg) !
             </div>";
         }
@@ -41,7 +41,7 @@ if ($_POST) {
         $maxSize = 1000000;
     
         if ($_FILES["photo"]["size"] > $maxSize) {
-            $erreur .= "<div class='alert alert-warning' role='alert'>
+            $msg .= "<div class='alert alert-warning' role='alert'>
                 Veuillez charger un un fichier moins lourd (max 1MO) !
             </div>";
         }
@@ -71,8 +71,7 @@ if ($_POST) {
         }
 
         extract($_POST);
-
-        $titre = $_POST["titre"];
+        // $titre = $_POST["titre"];
 
         // préparer la requête qui permet de faire l'insert
         $count = $pdo->exec(
@@ -91,10 +90,7 @@ if ($_POST) {
 
 }
 
-
 ?>
-
-
 
     <?php echo $msg; ?>
 

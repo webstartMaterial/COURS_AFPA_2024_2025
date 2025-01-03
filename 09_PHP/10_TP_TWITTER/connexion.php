@@ -42,7 +42,7 @@ if ($_POST) {
 
       // si mon mot de passe est valide je créer une session utilisateur
       $_SESSION['user_id'] = $user['id'];
-      $_SESSION['nom'] = $user['nom'];
+      $_SESSION['name'] = $user['name'];
       $_SESSION['email'] = $user['email'];
 
       header('location:profil.php');
