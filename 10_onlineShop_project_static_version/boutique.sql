@@ -106,6 +106,13 @@ CREATE TABLE `member` (
 --
 -- --------------------------------------------------------
 
+INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `civilite`, `ville`, `code_postal`, `adresse`, `statut`) VALUES
+(6, 'samih', '$2y$10$Emwm0Vo6whxbY55zelx9NusexdCgr5yXuipACc2Y4zxtHEhzKd1Hi', 'Habbani', 'Samih', 'samihhabbani@gmail.com', 'm', 'Soissons', 02200, 'rue d\'edouard phillipe', 2),
+(7, 'david', '$2y$10$bqrclhf5tUM6kNEeRGSDs.5tzhunNqfMeiWYKYO3X9DBXa86Idmv.', 'david', 'cohen', 'samihhabbani@gmail.com', 'm', 'paris', 75020, 'rue de l\'élysée', 2),
+(8, 'admin', '$2y$10$kIAEVIcwU6Sni36nT2CPB.KOSB4EktWUrg63YY1lXzW/V6DHfChiK', 'Habbani', 'Samih', 'samihhabbani@gmail.com', 'm', 'Soissons', 02200, 'rue d\'edouard phillipe', 1),
+(9, 'natalia', '$2y$10$CnLXhliw4tYzmBNUItu.V.DsUmmnI1Lr79zqNGAyLsoyDvp4HmpsS', 'Fabiano', 'Natalia', 'natalia@gmail.com', 'f', 'Houdan', 78550, '13 rue Saint-Mathieu', 2);
+
+
 --
 -- Table structure for table `product`
 --
