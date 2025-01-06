@@ -64,7 +64,7 @@
                 <img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle me-3" />
                 <div>
                   <h6 class="fw-bold mb-0"><?= $tweet["name"]; ?> <span class="text-muted"><?= $tweet["pseudo"]; ?></span></h6>
-                  <p class="text-muted small"><?= $tweet["date"]; ?></p>
+                  <p class="text-muted small"><?= $tweet["created_at"]; ?></p>
                 </div>
               </div>
               <p class="mt-2"><?= $tweet["content"]; ?></p>
