@@ -48,7 +48,7 @@
 
                     <?php } ?>
                     <li class="nav-item position_relative">
-                        <span class="number_elem_in_cart">1</span>
+                        <span class="number_elem_in_cart"><?= totalProductsInCart(); ?></span>
                         <a class="nav-link" href="cart.php">My cart</a>
                     </li>
                     

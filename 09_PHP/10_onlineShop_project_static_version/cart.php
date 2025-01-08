@@ -15,15 +15,38 @@ if(isset($_POST["addToCart"])) {
 
 }
 
+/////////// VIDER LE PANIER
+if(isset($_GET['action']) && $_GET['action'] == "emptyCart") {
+    unset($_SESSION["cart"]);
+
+    $msg = "<div class='alert alert-success'>
+        Votre panier a bien été vidé !
+    </div>";
+
+}
+
+//////////// ENLEVER UN PRODUIT DU PANIER
+if(isset($_GET['action']) && $_GET['action'] == "delete") {
+
+    deleteProductFromCart($_GET["id_product"]);
+
+}
+
 require_once("inc/header.php");
 
 ?>
 
 <!-- Body content -->
 
-<div class="col-md-12">
-    <a class="badge badge-danger" href="#">Empty shopping cart</a>
-</div>
+<?= $msg; ?>
+
+<?php if(isset($_SESSION["cart"]) && count($_SESSION["cart"]["id_product"]) > 0) { ?>
+
+    <div class="col-md-12">
+        <a class="badge badge-danger" href="?action=emptyCart">Empty shopping cart</a>
+    </div>
+
+<?php } ?>
 
 <table class="table my-5">
     <thead>
@@ -56,13 +79,16 @@ require_once("inc/header.php");
                         </td>
                         <td><?= $_SESSION["cart"]["price"][$i]; ?>€</td>
                         <td><img style="width:50px" src="pictures/<?= $_SESSION["cart"]["picture"][$i]; ?>" alt="<?= $_SESSION["cart"]["title"][$i]; ?>"></td>
-                        <td><a href="#">Delete</a></td>
+                        <td>
+                            <a 
+                            href="?action=delete&id_product=<?= $_SESSION["cart"]["id_product"][$i]; ?>">Delete</a>
+                        </td>
                     </tr>
                     
         <?php }} ?>
 
         <tr>
-            <td colspan="5" class="text-right"><strong>Total amount :</strong> x€</td>
+            <td colspan="5" class="text-right"><strong>Total amount :</strong> <?= totalCartAmount(); ?>€</td>
         </tr>
     </tbody>
 </table>
