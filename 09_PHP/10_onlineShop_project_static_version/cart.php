@@ -1,5 +1,22 @@
 <?php
+
+
+
+require_once("inc/init.php");
+
+/////////// AJOUT AU PANIER
+if(isset($_POST["addToCart"])) {
+
+
+    $stmt = $pdo->query("SELECT * FROM product WHERE id = '$_POST[id_product]' ");
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+    add_product($product, $_POST["quantity"]);
+
+
+}
+
 require_once("inc/header.php");
+
 ?>
 
 <!-- Body content -->
@@ -19,25 +36,33 @@ require_once("inc/header.php");
         </tr>
     </thead>
     <tbody>
+
+        <?php if(isset($_SESSION["cart"]) && count($_SESSION["cart"]["id_product"]) > 0 ) { 
+            
+                for ($i=0; $i < count($_SESSION["cart"]["id_product"]); $i++) {   ?>
+                    <tr>
+                        <td><?= $_SESSION["cart"]["title"][$i]; ?></td>
+                        <td>
+                            <?= $_SESSION["cart"]["quantity"][$i]; ?>
+                            <!-- <form action="">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </form> -->
+                        </td>
+                        <td><?= $_SESSION["cart"]["price"][$i]; ?>€</td>
+                        <td><img style="width:50px" src="pictures/<?= $_SESSION["cart"]["picture"][$i]; ?>" alt="<?= $_SESSION["cart"]["title"][$i]; ?>"></td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    
+        <?php }} ?>
+
         <tr>
-            <td>Black t-shirt</td>
-            <td>
-                <form action="">
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </form>
-            </td>
-            <td>99€</td>
-            <td><img style="width:50px" src="pictures/black_t-shirt.png" alt=""></td>
-            <td><a href="#">Delete</a></td>
-        </tr>
-        <tr>
-            <td colspan="5" class="text-right"><strong>Total amount :</strong> 99€</td>
+            <td colspan="5" class="text-right"><strong>Total amount :</strong> x€</td>
         </tr>
     </tbody>
 </table>

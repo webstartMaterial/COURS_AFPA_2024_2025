@@ -27,25 +27,37 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Shop <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="connection.php">Connection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registration.php">Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.php">My profile</a>
-                    </li>
+                    <?php if (!isUserConnected()) { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="connection.php">Connection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration.php">Registration</a>
+                        </li>
+
+                    <?php } else { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.php">My profile</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="connection.php?action=disconnection">Disconnection</a>
+                        </li>
+
+                    <?php } ?>
                     <li class="nav-item position_relative">
                         <span class="number_elem_in_cart">1</span>
                         <a class="nav-link" href="cart.php">My cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="connection.php">Disconnection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin/index.php">BackOffice</a>
-                    </li>
+                    
+                    <?php if(isUserConnectedAndAdmin()) { ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/index.php">BackOffice</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>
