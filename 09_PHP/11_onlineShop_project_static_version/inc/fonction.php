@@ -38,12 +38,19 @@
 
         create_cart_session();
 
-        $_SESSION["cart"]["id_product"][] = $product["id"];
-        $_SESSION["cart"]["quantity"][] = $quantity;
-        $_SESSION["cart"]["price"][] = $product["price"];
-        $_SESSION["cart"]["title"][] = $product["title"];
-        $_SESSION["cart"]["picture"][] = $product["picture"];
-        $_SESSION["cart"]["stock"][] = $product["stock"];
+        $positionProduct = array_search($product["id"], $_SESSION["cart"]["id_product"]);
+
+        if($positionProduct !== false) {
+            $_SESSION["cart"]["quantity"][$positionProduct] += $quantity;
+        } else {
+            $_SESSION["cart"]["id_product"][] = $product["id"];
+            $_SESSION["cart"]["quantity"][] = $quantity;
+            $_SESSION["cart"]["price"][] = $product["price"];
+            $_SESSION["cart"]["title"][] = $product["title"];
+            $_SESSION["cart"]["picture"][] = $product["picture"];
+            $_SESSION["cart"]["stock"][] = $product["stock"];
+        }
+
 
     }
 
@@ -90,8 +97,10 @@
         
         $total = 0;
 
-        for ($i=0; $i < count($_SESSION["cart"]["id_product"]); $i++) { 
-            $total += $_SESSION["cart"]["price"][$i] * $_SESSION["cart"]["quantity"][$i];
+        if(isset($_SESSION["cart"])) {
+            for ($i=0; $i < count($_SESSION["cart"]["id_product"]); $i++) { 
+                $total += $_SESSION["cart"]["price"][$i] * $_SESSION["cart"]["quantity"][$i];
+            }
         }
 
         return $total;

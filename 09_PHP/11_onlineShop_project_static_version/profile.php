@@ -53,7 +53,7 @@ require_once("inc/header.php");
         <?php 
             foreach ($orders as $order) {
                 
-                if($order["state"] == "en cours de traitement") { ?>
+                if($order["state"] == "in progress") { ?>
                     <li class="list-group-item text-center">
                         <p>Order n°<?= $order["id"]; ?> from the <?= $order["created_at"]; ?></p>
                         <p class="badge badge-warning"> <?= $order["state"]; ?></p>
@@ -72,7 +72,7 @@ require_once("inc/header.php");
         <?php 
             foreach ($orders as $order) {
                 
-                if($order["state"] != "en cours de traitement") { ?>
+                if($order["state"] != "in progress") { ?>
                     <li class="list-group-item text-center">
                         <p>Order n°<?= $order["id"]; ?> from the <?= $order["created_at"]; ?></p>
                         <p class="badge badge-success"> <?= $order["state"]; ?></p>
