@@ -17,8 +17,28 @@ if($_POST) {
 
 }
 
+// sij'ai un filtre
+if($_GET) {
 
-$stmt = $pdo->query("SELECT * FROM orders ORDER BY created_at DESC");
+  // rechercer par numéro de commande
+  if(isset($_GET["id_order"]) && $_GET["id_order"] !== "") {
+
+    $id = $_GET["id_order"];
+    $stmt = $pdo->query("SELECT * FROM orders WHERE id = '$id' ");
+
+  } else {
+
+    $state = $_GET["state"];
+    $stmt = $pdo->query("SELECT * FROM orders WHERE state = '$state' ");
+
+  }
+
+} else { // si j'ai pas de filtre et que je veux tout afficher
+  $stmt = $pdo->query("SELECT * FROM orders ORDER BY created_at DESC");
+
+}
+
+
 
 require_once("inc/header.php");
 
@@ -32,15 +52,20 @@ require_once("inc/header.php");
     <select class="form-control col-md-4" name="state">
 
         <option value="none">Filtrer par état</option>
-        <option value="in progress">En cours de traitement</option>
-        <option value="sent">Envoyé</option>
-        <option value="delivered">Livré</option>
+        <option value="in progress" <?= isset($_GET['state']) && $_GET['state'] == 'in progress' ? "selected" : "" ?>>En cours de traitement</option>
+        <option value="sent" <?= isset($_GET['state']) && $_GET['state'] == 'sent' ? "selected" : "" ?>>Envoyé</option>
+        <option value="delivered" <?= isset($_GET['state']) && $_GET['state'] == 'delivered' ? "selected" : "" ?>>Livré</option>
     
     </select>
 
     <p class="text-center mb-0 mr-3 ml-3">Ou</p>
 
-    <input type="text" name="id_order" class="form-control col-md-4" placeholder="Chercher une commande par son numéro" id="">
+    <input type="text" 
+    value="<?= isset($_GET["id_order"]) && $_GET["id_order"] !== "" && $_GET["state"] == "none" ? $_GET["id_order"] : "" ?>"
+    name="id_order" 
+    class="form-control col-md-4" 
+    placeholder="Chercher une commande par son numéro" 
+    id="">
 
 </form>
 

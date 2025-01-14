@@ -10,5 +10,7 @@ $msg = "";
 
 session_start();
 
+define("URL", "http://" . $_SERVER["HTTP_HOST"] . "/AFPA_2025/11_onlineShop_project_static_version/");
+define("SITE_ROOT", $_SERVER["DOCUMENT_ROOT"] . "/AFPA_2025/11_onlineShop_project_static_version/");
 
 ?>
