@@ -1,4 +1,3 @@
-
 -- se connecter au serveur en ssh
 ssh <user>@<host_server>
 
