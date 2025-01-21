@@ -1,0 +1,57 @@
+<?php
+
+
+    namespace Controller;
+
+    class BookController {
+
+
+        private $service;
+
+        // injection de dépendance
+        public function __construct($service){
+            $this->service = $service;
+        }
+
+        /**
+         * Gérer les différents url et donc les différentes requêtes http pour mes livres
+         * @return void
+         */
+        public function route() {
+
+            if(!isset($_GET["action"])) {
+                $this->listBooks();
+            } else if(isset($_GET["action"]) == "add") {
+                $this->addBook();
+            }
+
+        }
+
+        /**
+         * Méthode responsable d'afficher les livres
+         * @return void
+         */
+        public function listBooks() {
+
+            try {
+                $books = $this->service->listBooks();
+                $view = new View("Templates/list_books.php", ['books' => $books]);
+                $view->render();
+            } catch (\Exception $e) {
+                //throw $th;
+            }
+
+        }
+
+        /**
+         * Méthode responsable d'ajouter un livre
+         * @return void
+         */
+        public function addBook() {
+            
+        }
+
+    }
+
+
+?>
