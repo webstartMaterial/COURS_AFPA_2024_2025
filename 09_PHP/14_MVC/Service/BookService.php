@@ -17,7 +17,7 @@
         }
 
         public function addBook() {
-
+            $this->repository->add();
         }
 
 

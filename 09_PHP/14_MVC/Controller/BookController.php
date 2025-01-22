@@ -49,7 +49,29 @@
          * @return void
          */
         public function addBook() {
-            
+            if($_POST) {
+
+                foreach ($_POST as $key => $value) {
+                    $_POST[$key] = addslashes($value);
+                }
+
+                extract($_POST);
+
+                try {
+                    $this->service->addBook();
+                    $books = $this->service->listBooks();
+
+                    $view = new View("Templates/list_books.php", ['books' => $books, 'msg' => "Votre livre a bien été inséré !"]);
+                    $view->render();
+                } catch (\Throwable $th) {
+                    $view = new View("./Templates/error.php", ["msg" => $e->getMessage()]);
+                    $view->render();
+                }
+
+            } else {
+                $view = new View("Templates/add_book.php");
+                $view->render();
+            }
         }
 
     }

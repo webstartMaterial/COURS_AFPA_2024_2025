@@ -14,7 +14,11 @@
         }
 
         public function addLoan() {
-
+            return $this->repository->add();
+        }
+        
+        public function listBooks() {
+            return $this->repository->selectBooks();
         }
 
     }

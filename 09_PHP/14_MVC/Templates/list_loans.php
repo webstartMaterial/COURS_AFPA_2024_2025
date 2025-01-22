@@ -6,7 +6,7 @@
     <?php
 
     foreach ($loans as $loan) {
-        echo "<li>Livre n°:" . $loan->getBook_id() . "Date emprunt :" . $loan->getDate_loan() . "(Date retour :" .$loan->getDate_return(). ")</li>";
+        echo "<li>Emprunt n°:" . $loan->getBook_id() . "Date emprunt :" . $loan->getDate_loan() . "(Date retour :" .$loan->getDate_return(). ")</li>";
     }
 
     ?>
@@ -16,7 +16,7 @@
 <br>
 <br>
 
-<a href="#">Ajouter un Emprunt</a>
+<a href="?page=loan&action=add">Ajouter un Emprunt</a>
 
 <br>
 <br>

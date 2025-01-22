@@ -1,6 +1,10 @@
 
 <h1>Liste de livres</h1>
 
+    <div>
+        <p style="color:green"><?= isset($msg) ? $msg : ""; ?></p>
+    </div>
+
 <ul>
 
     <?php
@@ -16,7 +20,7 @@
 <br>
 <br>
 
-<a href="#">Ajouter un livre</a>
+<a href="?page=book&action=add">Ajouter un livre</a>
 
 <br>
 <br>

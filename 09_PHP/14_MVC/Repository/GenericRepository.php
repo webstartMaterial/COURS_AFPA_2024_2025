@@ -50,7 +50,26 @@ namespace Repository;
         }
 
         public function add() {
-            
+            // construire la chaine SQL pour l'insert
+            $columns = implode(", ", array_keys($_POST)); // "title, author, year_created_at, available"
+            $parameters = ":" . implode(", :", array_keys($_POST));// ":title, :author, :year_created_at, :available"
+
+            // INSERT INTO table(title, author, year_created_at, available) VALUES (:title, :author, :year_created_at, :available);
+            $sql = "INSERT INTO " . $this->table . " ({$columns}) VALUES ({$parameters});";
+
+            $stmt = $this->getDb()->prepare($sql);
+
+            // lier chaque valeur à un paramètre de ma requête
+            foreach ($_POST as $index => &$value) {
+                $stmt->bindParam(":{$index}", $value);
+            }
+
+            // $stmt->bindParam(":title", $_POST["title"]);
+            // $stmt->bindParam(":author", $_POST["author"]);
+            // $stmt->bindParam(":year_created_at", $_POST["year_created_at"]);
+            // $stmt->bindParam(":available", $_POST["available"]);
+            $stmt->execute();
+            return $this->getDb()->lastInsertId();
         }
 
         public function delete($id) {
