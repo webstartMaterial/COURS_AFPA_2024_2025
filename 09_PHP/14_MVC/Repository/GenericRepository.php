@@ -42,7 +42,7 @@ namespace Repository;
         public function selectAll() {
             $sql = "SELECT * FROM " . $this->table . ";";
             $stmt = $this->getDb()->query($sql);
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "\Entity\\" . $this->table);
+            return $stmt->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, "\Entity\\" . $this->table);
         }
 
         public function selectById($id) {

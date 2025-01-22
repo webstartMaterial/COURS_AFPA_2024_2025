@@ -38,7 +38,8 @@
                 $view = new View("Templates/list_books.php", ['books' => $books]);
                 $view->render();
             } catch (\Exception $e) {
-                //throw $th;
+                $view = new View("./Templates/error.php", ["msg" => $e->getMessage()]);
+                $view->render();
             }
 
         }

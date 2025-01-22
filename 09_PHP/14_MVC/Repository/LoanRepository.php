@@ -1,7 +1,13 @@
 <?php
 
     namespace Repository;
-    class LoanRepository {
+    class LoanRepository extends GenericRepository  {
+
+        private static $table = "loan";
+
+        public function __construct() {
+            parent::__construct(self::$table);
+        }
 
     }
 

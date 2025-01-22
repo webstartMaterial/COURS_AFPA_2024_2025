@@ -20,6 +20,26 @@
 
         }
 
+        public function getId() {
+            return $this->id;
+        }
+
+        public function getTitle() {
+            return $this->title;
+        }
+
+        public function getAuthor() {
+            return $this->author;
+        }
+
+        public function getYear_created_at() {
+            return $this->year_created_at;
+        }
+
+        public function getAvailable() {
+            return $this->available;
+        }
+
     }
 
 ?>

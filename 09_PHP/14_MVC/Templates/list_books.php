@@ -6,8 +6,7 @@
     <?php
 
     foreach ($books as $book) {
-        echo "<li>$book->title : $book->author ($book->year_created_at) - disponible</li>";
-
+        echo "<li>" . $book->getTitle() . ":" . $book->getAuthor() . "(" .$book->getYear_created_at(). ") - disponible</li>";
     }
 
     ?>
