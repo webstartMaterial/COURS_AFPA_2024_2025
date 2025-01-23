@@ -1,5 +1,5 @@
 
-<h1>Liste de livres</h1>
+<h1>Liste d'emprunts</h1>
 
 <ul>
 

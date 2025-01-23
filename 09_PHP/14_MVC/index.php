@@ -22,7 +22,7 @@
 
     <ul>
         <li>
-            <a href="?page=livre"> Lister les livres</a>
+            <a href="?page=book"> Lister les livres</a>
             <a href="?page=loan"> Lister les emprunts</a>
         </li>
     </ul>

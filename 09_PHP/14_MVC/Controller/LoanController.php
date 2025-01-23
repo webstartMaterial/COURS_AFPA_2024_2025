@@ -14,8 +14,12 @@
 
             if(!isset($_GET["action"])) {
                 $this->listLoans();
-            } else if(isset($_GET["action"]) == "add") {
+            } else if($_GET["action"] == "add") {
                 $this->addLoan();
+            } else if($_GET["action"] == "delete") {
+                $this->deleteLoan();
+            } else {
+                $this->updateLoan();
             }
 
         }
@@ -44,8 +48,8 @@
                 $_POST["date_loan"] = date("Y-m-d"); // date d'emprunt
 
                 try {
-                    $this->service->addBook();
-                    $books = $this->service->listLoans();
+                    $this->service->addLoan($_POST["book_id"]);
+                    $loans = $this->service->listLoans();
 
                     $view = new View("Templates/list_loans.php", ['loans' => $loans, 'msg' => "Votre emprunt a bien été inséré !"]);
                     $view->render();
@@ -59,6 +63,14 @@
                 $view = new View("Templates/add_loan.php", ["booksAvailable" => $books]);
                 $view->render();
             }
+        }
+
+        public function deleteLoan(){
+
+        }
+
+        public function updateLoan(){
+
         }
 
     }

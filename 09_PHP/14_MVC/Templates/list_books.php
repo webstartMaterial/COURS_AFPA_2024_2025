@@ -10,7 +10,9 @@
     <?php
 
     foreach ($books as $book) {
-        echo "<li>" . $book->getTitle() . ":" . $book->getAuthor() . "(" .$book->getYear_created_at(). ") - disponible</li>";
+        echo "<li>" . $book->getTitle() . ":" . $book->getAuthor() . "(" .$book->getYear_created_at(). ") - disponible <a href='?page=book&action=delete&book_id=" . $book->getId() . "'>Supprimer</a>
+        <a href='?page=book&action=update&book_id=" . $book->getId() . "'>MAJ</a>
+        </li>";
     }
 
     ?>

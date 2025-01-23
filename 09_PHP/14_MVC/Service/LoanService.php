@@ -13,8 +13,11 @@
             return $this->repository->selectAll();
         }
 
-        public function addLoan() {
-            return $this->repository->add();
+        public function addLoan($book_id) {
+
+            $this->repository->add();
+            $this->repository->updateBookAvailability($book_id);
+
         }
         
         public function listBooks() {

@@ -46,7 +46,10 @@ namespace Repository;
         }
 
         public function selectById($id) {
-            
+            $sql = "SELECT * FROM " . $this->table . " WHERE id = '$id';";
+            $stmt = $this->getDb()->query($sql);
+            return $stmt->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, "\Entity\\" . $this->table);
+
         }
 
         public function add() {
@@ -56,7 +59,6 @@ namespace Repository;
 
             // INSERT INTO table(title, author, year_created_at, available) VALUES (:title, :author, :year_created_at, :available);
             $sql = "INSERT INTO " . $this->table . " ({$columns}) VALUES ({$parameters});";
-
             $stmt = $this->getDb()->prepare($sql);
 
             // lier chaque valeur à un paramètre de ma requête
@@ -73,10 +75,29 @@ namespace Repository;
         }
 
         public function delete($id) {
-            
+            $sql = "DELETE FROM " . $this->table . " WHERE id = '$id';";
+            $this->getDb()->exec($sql);
         }
 
         public function update($id) {
+
+            $setPart = [];
+
+            foreach ($_POST as $column => $value) {
+                $setPart[] = "$column = :$column"; // ça ça ajoute une valeur à notre array et ca fait +1 sur l'index
+            }
+
+            $stringParameters = implode(", ", $setPart); // title = :title, author = :author...
+            // UPDATE book SET title = :title, author = :author...
+            $sql = "UPDATE " . $this->table . " SET " . $stringParameters . " WHERE id = '$id';";
+
+            $stmt = $this->getDb()->prepare($sql);
+            
+            foreach ($_POST as $column => &$value) {
+                $stmt->bindParam(":$column", $value);
+            }
+
+            $stmt->execute();
             
         }
 

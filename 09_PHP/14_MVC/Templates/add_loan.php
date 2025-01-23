@@ -1,4 +1,4 @@
-<form method="post" action="index.php?page=emprunt&action=add">
+<form method="post" action="index.php?page=loan&action=add">
     <label for="book_id">Sélectionnez un livre:</label><br>
     <select id="book_id" name="book_id" required>
         <?php foreach ($booksAvailable as $book) {

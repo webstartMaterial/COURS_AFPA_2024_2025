@@ -1,4 +1,4 @@
-<form method="post" action="index.php?page=livre&action=add">
+<form method="post" action="index.php?page=book&action=add">
     <label for="title">Titre:</label><br>
     <input type="text" id="title" name="title" required><br>
 

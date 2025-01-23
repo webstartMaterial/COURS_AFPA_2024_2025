@@ -20,6 +20,21 @@
             $this->repository->add();
         }
 
+        public function deleteBook($id) {
+
+            $this->repository->delete($id);
+
+        }
+
+        public function updateBook($id) {
+
+            $this->repository->update($id);
+
+        }
+        
+        public function selectBookById($id) {
+            return $this->repository->selectById($id);
+        }
 
     }
 
