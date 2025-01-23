@@ -24,6 +24,19 @@
             return $this->repository->selectBooks();
         }
 
+
+        public function updateLoan($id) {
+            return $this->repository->update($id);
+        }
+
+        public function deleteLoan($id) {
+            return $this->repository->delete($id);
+        }
+
+        public function selectLoanById($id) {
+            return $this->repository->selectById($id);
+        }
+
     }
 
 ?>

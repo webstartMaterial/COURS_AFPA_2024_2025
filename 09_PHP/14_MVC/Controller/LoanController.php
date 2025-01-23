@@ -66,11 +66,35 @@
         }
 
         public function deleteLoan(){
+            try {
+                $this->service->deleteLoan($_GET["loan_id"]);
+                $loans = $this->service->listLoans();
 
+                $view = new View("Templates/list_loans.php", ['loans' => $loans, 'msg' => "Votre emprunt a bien été supprimé !"]);
+                $view->render();
+            } catch (\Exception $e) {
+                $view = new View("./Templates/error.php", ["msg" => $e->getMessage()]);
+                $view->render();
+            }
         }
 
         public function updateLoan(){
-
+            if($_POST) {
+                try {
+                    $this->service->updateLoan($_POST["id"]);
+                    $loans = $this->service->listLoans();
+    
+                    $view = new View("Templates/list_loans.php", ['loans' => $loans, 'msg' => "Votre emprunt a bien été mis à jour !"]);
+                    $view->render();
+                } catch (\Exception $e) {
+                    $view = new View("./Templates/error.php", ["msg" => $e->getMessage()]);
+                    $view->render();
+                }
+            } else {
+                $loan = $this->service->selectLoanById($_GET["loan_id"]);
+                $view = new View("Templates/update_loan.php", ["loan" => $loan[0]]);
+                $view->render();
+            }
         }
 
     }
