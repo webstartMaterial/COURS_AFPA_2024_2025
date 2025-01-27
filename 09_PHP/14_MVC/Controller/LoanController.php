@@ -27,7 +27,7 @@
         public function listLoans() {
 
             try {
-                $loans = $this->service->listLoans();
+                $loans = $this->service->listBookLoansAndUsers();
                 $view = new View("./Templates/list_loans.php", ["loans" => $loans]);
                 $view->render();
             } catch (\Exception $e) {
@@ -60,7 +60,8 @@
 
             } else {
                 $books = $this->service->listBooks();
-                $view = new View("Templates/add_loan.php", ["booksAvailable" => $books]);
+                $users = $this->service->listUsers();
+                $view = new View("Templates/add_loan.php", ["booksAvailable" => $books, "users" => $users]);
                 $view->render();
             }
         }

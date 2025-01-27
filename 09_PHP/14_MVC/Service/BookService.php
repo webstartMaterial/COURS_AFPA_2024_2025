@@ -12,27 +12,27 @@
             $this->repository = $repository;
         }
 
-        public function listBooks() {
+        public function list() {
             return $this->repository->selectAll();
         }
 
-        public function addBook() {
+        public function add() {
             $this->repository->add();
         }
 
-        public function deleteBook($id) {
+        public function delete($id) {
 
             $this->repository->delete($id);
 
         }
 
-        public function updateBook($id) {
+        public function update($id) {
 
             $this->repository->update($id);
 
         }
         
-        public function selectBookById($id) {
+        public function selectById($id) {
             return $this->repository->selectById($id);
         }
 

@@ -9,15 +9,27 @@
             $this->repository = $repository;
         }
 
-        public function listLoans() {
+        public function list() {
             return $this->repository->selectAll();
         }
 
-        public function addLoan($book_id) {
+        public function add($book_id) {
 
             $this->repository->add();
             $this->repository->updateBookAvailability($book_id);
 
+        }
+
+        public function update($id) {
+            return $this->repository->update($id);
+        }
+
+        public function delete($id) {
+            return $this->repository->delete($id);
+        }
+
+        public function selectById($id) {
+            return $this->repository->selectById($id);
         }
         
         public function listBooks() {
@@ -25,18 +37,14 @@
         }
 
 
-        public function updateLoan($id) {
-            return $this->repository->update($id);
+
+        public function listUsers() {
+            return $this->repository->selectAllUsers();
         }
 
-        public function deleteLoan($id) {
-            return $this->repository->delete($id);
+        public function listBookLoansAndUsers() {
+            return $this->repository->listBookLoansAndUsers();
         }
-
-        public function selectLoanById($id) {
-            return $this->repository->selectById($id);
-        }
-
     }
 
 ?>

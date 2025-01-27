@@ -9,8 +9,12 @@
 
     <?php
 
+    // echo "<pre>";
+    // var_dump($loans);
+    // echo "</pre>";
+
     foreach ($loans as $loan) {
-        echo "<li>Emprunt n°:" . $loan->getBook_id() . "Date emprunt :" . $loan->getDate_loan() . "(Date retour :" .$loan->getDate_return(). ")
+        echo "<li>Le livre " . $loan->getBookTitle() . " a été emprunté le " . $loan->getDate_loan() . "(Date retour :" .$loan->getDate_return(). ") par " . $loan->getFirstName() . " " . $loan->getLastName() . "
         <a href='?page=loan&action=delete&loan_id=" . $loan->getId() . "'>Supprimer</a>
         <a href='?page=loan&action=update&loan_id=" . $loan->getId() . "'>MAJ</a>
         </li>";
